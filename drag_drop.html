@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag And Drop</title>
+    <style>
+        #div1{
+            float: left;
+            width: 300px;
+            height: 500px;
+            margin: 10px;
+            border: 1px solid black;
+
+        }
+    </style>
+    <script>
+        function allowDrop(ev)
+        {
+            ev.preventDefault();
+        }
+        function drag(ev)
+        {
+            ev.dataTransfer.setData("text",ev.target.id);
+        }
+        function drop(ev)
+        {
+            ev.preventDefault();
+            var data=ev.dataTransfer("text")
+            ev.target=appendChil(document.)
+        }
+    </script>
+</head>
+<body>
+    <h1>DRAG AND DROP</h1>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <img src="image.jpeg" width="300" height="500" draggable="true" ondragstart="drag(event)" id="drag1">
+</body>
+</html>
