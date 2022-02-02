@@ -4,37 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drag And Drop</title>
+    <title>Drag and Drop</title>
     <style>
-        #div1{
+        #div1,#div2,#div3,#div4 {
             float: left;
-            width: 300px;
-            height: 500px;
+            width: 200px;
+            height: 250px;
             margin: 10px;
             border: 1px solid black;
-
         }
+
     </style>
     <script>
-        function allowDrop(ev)
-        {
-            ev.preventDefault();
+        function allowDrop(ev) {
+          ev.preventDefault();
         }
-        function drag(ev)
-        {
-            ev.dataTransfer.setData("text",ev.target.id);
+        
+        function drag(ev) {
+          ev.dataTransfer.setData("text", ev.target.id);
         }
-        function drop(ev)
-        {
-            ev.preventDefault();
-            var data=ev.dataTransfer("text")
-            ev.target=appendChil(document.)
+        
+        function drop(ev) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          ev.target.appendChild(document.getElementById(data));
         }
-    </script>
+        </script>
+
+
 </head>
 <body>
-    <h1>DRAG AND DROP</h1>
-    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <img src="image.jpeg" width="300" height="500" draggable="true" ondragstart="drag(event)" id="drag1">
+    <h1>DRAG AND DROP:</h1>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+
+    <img src="image.jpeg" width="200" height="250" draggable="true" ondragstart="drag(event)" id="drag1">    
+
+    </div>
+   
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <div id="div4"></div>
 </body>
 </html>
